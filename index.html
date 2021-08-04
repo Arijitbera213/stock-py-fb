@@ -12,6 +12,10 @@
       crossorigin="anonymous"
     />
   </head>
+  
+
+
+
   <body>
     <!-- Navbar Section -->
     <nav class="navbar">
@@ -64,14 +68,58 @@
     <div class="main" id="about">
     <div class="main__container">
       <div class="main__content">
-          <form method="POST">
+        <div>
+        
+          <!--Add few elements to the form-->
+          <label for="date">Pick a start date</label>
+          <input type="date" name="date" id="sd">
+          <br>
+          <label for="date">Pick a end date</label>
+          <input type="date" name="date" id="ed">
+          <br>
+          <!-- <div>
+              <input type="text" id="txtName" placeholder="Enter your name" />
+          </div>
+          <div>
+              <input type="text" id="txtAge" placeholder="Enter your age" />
+          </div> -->
+          <div>
+              <input type="button" id="bt" value="Save data to file" onclick="saveFile()" />
+          </div>
+  
+      </div>
+          <script>
+            let saveFile = () => {
               
-              <label for="date">Pick a date</label>
-              <input type="date" name="date" id="date">
-              <br>
-             
-              <input type="submit" value="Add Date">
-          </form>
+                // Get the data from each element on the form.
+              const sd = document.getElementById('sd');
+                const ed = document.getElementById('ed');
+            
+                
+                // This variable stores all the data.
+                let data = 
+                    '\r sd: ' + sd.value + ' \r\n ' + 
+                    'ed: ' +ed.value + ' \r\n ' ;
+                
+                // Convert the text to BLOB.
+                const textToBLOB = new Blob([data], { type: 'text/plain' });
+                const sFileName = 'data.txt';	   // The file to save the data.
+        
+                let newLink = document.createElement("a");
+                newLink.download = sFileName;
+        
+                if (window.webkitURL != null) {
+                    newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+                }
+                else {
+                    newLink.href = window.URL.createObjectURL(textToBLOB);
+                    newLink.style.display = "none";
+                    document.body.appendChild(newLink);
+                }
+        
+                newLink.click(); 
+            }
+        </script>
       </div>
     </div></div>
     <div class="main" id="about">
@@ -152,3 +200,14 @@
     <script src="app.js"></script>
   </body>
 </html>
+
+<?php
+              
+if(isset($_POST['textdata']))
+{
+$data=$_POST['textdata'];
+$fp = fopen('data.txt', 'a');
+fwrite($fp, $data);
+fclose($fp);
+}
+?>

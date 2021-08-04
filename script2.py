@@ -1,3 +1,6 @@
+import datetime
+from flask import Flask, render_template,request
+app = Flask(__name__,template_folder='.')
 @app.route("/date", methods=['GET','POST'])
 def date_example():
     
@@ -11,7 +14,7 @@ def date_example():
         
         # create Python date from form_date and form_time. We use the python datetime string formmatting to describe how the date is built YYYY-MM-DD HH:MM
 
-        date = datetime.datetime.strptime(form_date  ,"%Y-%m-" )
+        date = datetime.datetime.strptime(form_date  ,"%Y,%m,%D" )
         
         # create your database document
         # this is an example model
@@ -19,7 +22,7 @@ def date_example():
         # mydoc.date = date  # save date to the 'date' field
         # mydoc.save()
         
-        return "The submitted date / time is %s" % str(date)
+        return "The submitted date  is %s" % str(date)
         
     else:
         
