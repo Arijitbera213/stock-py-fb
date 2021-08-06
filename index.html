@@ -69,7 +69,7 @@
     <div class="main__container">
       <div class="main__content">
         <div>
-        
+        <form action="post.php" method="post">
           <!--Add few elements to the form-->
           <label for="date">Pick a start date</label>
           <input type="date" name="date" id="sd">
@@ -86,7 +86,7 @@
           <div>
               <input type="button" id="bt" value="Save data to file" onclick="saveFile()" />
           </div>
-  
+        </form>
       </div>
           <script>
             let saveFile = () => {
