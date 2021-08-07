@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+  <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stock Market Analysis</title>
     <link rel="stylesheet" href="static/main.css" />
@@ -50,7 +50,6 @@
         <button class="main__btn"><a href="#">Explore</a></button>
       </div>
     </div>
-   
 
     <!-- About Section -->
     <div class="main" id="about">
@@ -69,41 +68,27 @@
     <div class="main" id="about">
     <div class="main__container">
       <div class="main__content">
-        <div>
-      
-          <form>
-            <div class="formBox">
-                <label for="title">Start date</label>
-                <input type="date" name="sd" id="sd">
-            </div>
-            <div class="formBox">
-                <label for="yr">End date</label>
-                <input type="date" name="ed" id="ed">
-            </div>
-            <div class="formBox">
-                <button id="btn">Click to Add</button>
-            </div>
-            <div id="msg">
-                <pre></pre>
-            </div>
+        <form class="contact-form">
+        
+    
+          <label for="">Can you provide me Start date ?</label><br />
+          <input class="sd" type="date"  required><br/>
+    
+          <label for="">Can I have your end date ?</label><br />
+          <input class="ed" type="date"  required><br/>
+    
+          
+          <button type="submit">Submit</button>
         </form>
-      </div>
-      <script>
-                let stockdate = [];
-        const adddata = (ev)=>{
-            ev.preventDefault();
-            let data = {
-                start: document.getElementById('sd').value,
-                end: document.getElementById('ed').value
-            }
-            stockdate.push(data);
-            localStorage.setItem('MydataList', JSON.stringify(stockdate) );
-        }
-        document.addEventListener('DOMContentLoaded', ()=>{
-            document.getElementById('btn').addEventListener('click', adddata);
-        }
-        );
-      </script>
+    
+        <!--Footer section Start-->
+      
+      <!--Footer section End-->
+    
+        <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase.js"></script>
+    <script src="data.js"></script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+
       </div>
     </div></div>
     <div class="main" id="about">
@@ -184,3 +169,4 @@
     <script src="app.js"></script>
   </body>
 </html>
+
