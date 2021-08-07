@@ -88,30 +88,22 @@
             </div>
         </form>
       </div>
-          <script>
+      <script>
                 let stockdate = [];
         const adddata = (ev)=>{
             ev.preventDefault();
             let data = {
-               // realtime: Date.now(),
                 start: document.getElementById('sd').value,
                 end: document.getElementById('ed').value
             }
             stockdate.push(data);
-            document.forms[0].reset(); // to clear the form for the next entries
-            //document.querySelector('form').reset();
-            //for display purposes only
-            console.warn('added' , {stockdate} );
-            let pre = document.querySelector('#msg pre');
-            pre.textContent = '\n' + JSON.stringify(stockdate, '\t', 2);
-            //saving to localStorage
             localStorage.setItem('MydataList', JSON.stringify(stockdate) );
         }
         document.addEventListener('DOMContentLoaded', ()=>{
             document.getElementById('btn').addEventListener('click', adddata);
-        });
-            
-        </script>
+        }
+        );
+      </script>
       </div>
     </div></div>
     <div class="main" id="about">
