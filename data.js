@@ -12,34 +12,42 @@ firebase.initializeApp(firebaseConfig);
 
 //Reference messages collection
   // Reference Messages collection
-  let contactInfo = firebase.database().ref("information");
+  let contactInfo = firebase.database().ref("Analysis");
 
 
 
 
-  document.querySelector(".contact-form").addEventListener("submit", submitForm);
+  document.querySelector(".Date-form").addEventListener("submit", submitForm);
   
   function submitForm(e) {
     e.preventDefault();
   
 
+    let sy= document.querySelector(".sy").value;
+    let ey = document.querySelector(".ey").value;
+    let sm= document.querySelector(".sm").value;
+    let em = document.querySelector(".em").value; 
     let sd= document.querySelector(".sd").value;
     let ed = document.querySelector(".ed").value;
   
-    console.log( sd,ed);
+    console.log( sy,ey,sm,em,sd,ed);
   
-    saveContactInfo(sd,ed);
+    saveContactInfo(sy,ey,sm,em,sd,ed);
     alert("Your Message has been sent Successfully. Thank You!");
-    document.querySelector(".contact-form").reset();
+    document.querySelector(".Date-form").reset();
   }
   
   
   
   
-  function saveContactInfo(sd,ed) {
+  function saveContactInfo(sy,ey,sm,em,sd,ed) {
     let newContactInfo = contactInfo.push();
   
     newContactInfo.set({
+      sy: sy,
+      ey: ey,
+      sm: sm,
+      em: em,
       sd: sd,
       ed: ed,
       
