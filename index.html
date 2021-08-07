@@ -50,6 +50,7 @@
         <button class="main__btn"><a href="#">Explore</a></button>
       </div>
     </div>
+   
 
     <!-- About Section -->
     <div class="main" id="about">
@@ -88,34 +89,26 @@
         </form>
       </div>
           <script>
-      
-              
-             
-                
-                // Convert the text to BLOB.
-                let movies = [];
-        // example {id:1592304983049, title: 'Deadpool', year: 2015}
-        const addMovie = (ev)=>{
-            ev.preventDefault();  //to stop the form submitting
-            let movie = {
-                id: Date.now(),
-                title: document.getElementById('sd').value,
-                year: document.getElementById('ed').value
+                let stockdate = [];
+        const adddata = (ev)=>{
+            ev.preventDefault();
+            let data = {
+               // realtime: Date.now(),
+                start: document.getElementById('sd').value,
+                end: document.getElementById('ed').value
             }
-            movies.push(movie);
+            stockdate.push(data);
             document.forms[0].reset(); // to clear the form for the next entries
             //document.querySelector('form').reset();
-
             //for display purposes only
-            console.warn('added' , {movies} );
+            console.warn('added' , {stockdate} );
             let pre = document.querySelector('#msg pre');
-            pre.textContent = '\n' + JSON.stringify(movies, '\t', 2);
-
+            pre.textContent = '\n' + JSON.stringify(stockdate, '\t', 2);
             //saving to localStorage
-            localStorage.setItem('MyMovieList', JSON.stringify(movies) );
+            localStorage.setItem('MydataList', JSON.stringify(stockdate) );
         }
         document.addEventListener('DOMContentLoaded', ()=>{
-            document.getElementById('btn').addEventListener('click', addMovie);
+            document.getElementById('btn').addEventListener('click', adddata);
         });
             
         </script>
