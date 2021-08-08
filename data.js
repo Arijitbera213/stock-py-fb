@@ -10,9 +10,8 @@ var firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
-//Reference messages collection
-  // Reference Messages collection
-  let contactInfo = firebase.database().ref("Analysis");
+
+  let contactInfo = firebase.database().ref("Analysis/");
 
 
 
@@ -32,24 +31,17 @@ firebase.initializeApp(firebaseConfig);
   
     console.log( sy,ey,sm,em,sd,ed);
   
-    saveContactInfo(sy,ey,sm,em,sd,ed);
-    alert("Your Message has been sent Successfully. Thank You!");
-    document.querySelector(".Date-form").reset();
-  }
-  
-  
-  
-  
-  function saveContactInfo(sy,ey,sm,em,sd,ed) {
-    let newContactInfo = contactInfo.push();
-  
-    newContactInfo.set({
+    var newData = {
       sy: sy,
       ey: ey,
       sm: sm,
       em: em,
       sd: sd,
-      ed: ed,
-      
-    });
+      ed: ed
   }
+  var firebaseRef = firebase.database().ref('Analysis/')
+  firebaseRef.update(newData)
+    alert("Your Message has been sent Successfully. Thank You!");
+   
+  }
+  
