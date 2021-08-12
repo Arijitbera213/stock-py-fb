@@ -595,6 +595,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 2%
 }
 
 #footer__logo {
@@ -608,7 +609,7 @@
 
 .footer__links {
   width: 100%;
-  max-width: 1000px;
+  max-width: 100%;
   display: flex;
   justify-content: center;
 }
@@ -623,7 +624,7 @@
   align-items: flex-start;
   margin: 16px;
   text-align: left;
-  width: 160px;
+  width: 100%;
   box-sizing: border-box;
 }
 
@@ -674,7 +675,7 @@
   color: #fff;
 }
 
-@media screen and (max-width: 820px) {
+@media screen and (max-width: 100%) {
   .footer__links {
     padding-top: 2rem;
   }
