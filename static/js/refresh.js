@@ -8,4 +8,4 @@ let refresh = function() {
 
     };
 }
-window.setInterval( refresh, 1000);
+window.setInterval( refresh, 30000);
