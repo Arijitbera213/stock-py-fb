@@ -1,8 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
 
 import pandas_datareader.data as web
 import datetime
@@ -16,16 +11,6 @@ cred = credentials.Certificate(r"serviceAccountKey.json")
 initialize_app(cred, {'storageBucket': 'stock-data-fc41e.appspot.com'})
 firebase = firebase.FirebaseApplication('https://stock-data-fc41e-default-rtdb.firebaseio.com/', None)
 get_ipython().run_line_magic('matplotlib', 'inline')
-
-
-# In[ ]:
-
-
-
-
-
-# In[5]:
-
 
 result = firebase.get('/Analysis/', '')
 data = json.dumps(result)
@@ -42,10 +27,6 @@ z=int(finalz)
 p=int(finalp)
 q=int(finalq)
 r=int(finalr)
-
-
-# In[6]:
-
 
 start= datetime.datetime(p,q,r)
 end= datetime.datetime(x,y,z)
